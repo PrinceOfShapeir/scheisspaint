@@ -19,8 +19,8 @@ const Interface = props => {
     const setHollow = props.setHollow;
     const clear = props.clear;
 
-    const [previewCleared, setPreviewCleared] = useState(false);
-    const [startedPreview, setStartedPreview] = useState(false);
+    //const [previewCleared, setPreviewCleared] = useState(false);
+    //const [startedPreview, setStartedPreview] = useState(false);
 
 
     
@@ -32,13 +32,13 @@ const Interface = props => {
         context.rect(0, 0, context.canvas.width, context.canvas.height);
         context.stroke();
         //if(!startedPreview) setStartedPreview(!startedPreview);
-    }, [previewCleared]);
+    }, [/*previewCleared*/]);
 
     useEffect(()=>{
 
         const clearPreview = (context) => {
             context.clearRect(0,0,context.canvas.width-1, context.canvas.height-1);
-            return setPreviewCleared(!previewCleared);
+            //return setPreviewCleared(!previewCleared);
         }
 
         const previewPane = () => {
