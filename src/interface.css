@@ -1,0 +1,11 @@
+.shadowed,
+p {
+  color: white;
+  text-shadow: 2px 2px 4px #0000;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
