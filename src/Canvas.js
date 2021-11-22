@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Interface from './Interface';
 import './Canvas.css';
+
+const margins = 10; //in px
 const Canvas = props => {
 
     const canvasRef = useRef(null);
@@ -16,7 +18,7 @@ const Canvas = props => {
     const [hollow, isHollow] = useState(false);
     const [cleared, setCleared] = useState(false);
     
-   
+    const [mounted, setMounted] = useState(false);
 
     const setHollow = () => {
         isHollow(!hollow);
@@ -41,6 +43,14 @@ const Canvas = props => {
         context.beginPath();
         context.rect(0, 0, context.canvas.width, context.canvas.height);
         context.stroke();
+        if(!mounted) {
+            context.font = "15px Trebuchet";
+            context.fillText("Color", 590, 379);
+            context.fillText("Preview", 0, 379);
+            context.font = "45px Trebuchet";
+            context.fillText("Click 'Clear' to begin drawing!",45, 160);
+            setMounted(!mounted);
+        }
     }, [cleared]);
 
     function onClick (e) {
@@ -53,20 +63,20 @@ const Canvas = props => {
 
         if(actionType==='point') {
             
-            context.fillRect(e.clientX, e.clientY, 1, 1);
+            context.fillRect(e.clientX - margins, e.clientY - margins, 1, 1);
         }
         else if (actionType==='line') {
 
             if(beginPoint===null){
-                setBeginPoint({x: e.clientX, y: e.clientY});
-                context.fillRect(e.clientX, e.clientY, 1, 1);
+                setBeginPoint({x: e.clientX - margins, y: e.clientY - margins});
+                context.fillRect(e.clientX - margins, e.clientY - margins, 1, 1);
                 context.save();
             }
             else {
                 context.restore();
                 context.beginPath();
                 context.moveTo(beginPoint.x,beginPoint.y);
-                context.lineTo(e.clientX,e.clientY);
+                context.lineTo(e.clientX - margins,e.clientY - margins);
                 context.stroke();
                 setBeginPoint(null);
             }
@@ -78,15 +88,15 @@ const Canvas = props => {
 
             if(beginPoint===null){
 
-                setBeginPoint({x: e.clientX, y: e.clientY});
+                setBeginPoint({x: e.clientX - margins, y: e.clientY - margins});
                 context.save();
             } else {
                 context.restore();
                 if(!hollow) {
-                    context.fillRect(beginPoint.x, beginPoint.y, e.clientX-beginPoint.x, e.clientY-beginPoint.y);
+                    context.fillRect(beginPoint.x, beginPoint.y, e.clientX - margins-beginPoint.x, e.clientY - margins-beginPoint.y);
                 } else {
                     context.beginPath();
-                    context.rect(beginPoint.x, beginPoint.y, e.clientX-beginPoint.x, e.clientY-beginPoint.y);
+                    context.rect(beginPoint.x, beginPoint.y, e.clientX - margins-beginPoint.x, e.clientY - margins-beginPoint.y);
                     context.stroke();
                 }
                 
@@ -110,7 +120,7 @@ const Canvas = props => {
             console.log("Should be drawing a temporary line");
             context.beginPath();
             context.moveTo(beginPoint.x,beginPoint.y);
-            context.lineTo(e.clientX,e.clientY);
+            context.lineTo(e.clientX - margins,e.clientY - margins);
             context.stroke();
             
         }
@@ -125,9 +135,9 @@ const Canvas = props => {
             const context = canvas.getContext('2d');
             context.lineWidth = lineWidth;
             context.strokeStyle = color;
-            cachedXY.x = e.clientX;
-            cachedXY.y = e.clientY;
-            context.moveTo(e.clientX, e.clientY);
+            cachedXY.x = e.clientX - margins;
+            cachedXY.y = e.clientY - margins;
+            context.moveTo(e.clientX - margins, e.clientY - margins);
             context.beginPath();
             
             isDrawing(!drawing);
@@ -147,21 +157,21 @@ const Canvas = props => {
                     
                     //context.moveTo(cachedXY.x, cachedXY.y);
                     //context.beginPath();
-                    context.lineTo(e.clientX, e.clientY);
+                    context.lineTo(e.clientX - margins, e.clientY - margins);
                     context.stroke();
-                    cachedXY.x = e.clientX;
-                    cachedXY.y = e.clientY;
+                    cachedXY.x = e.clientX - margins;
+                    cachedXY.y = e.clientY - margins;
                     
             
                 } else if (drawing&&pattern==='broken'){
 
-                context.lineTo(e.clientX, e.clientY);
+                context.lineTo(e.clientX - margins, e.clientY - margins);
                 setDrawCounter(drawCounter+1);
 
                 if(drawCounter>1) {
 
                     context.stroke();
-                    context.moveTo(e.clientX, e.clientY);
+                    context.moveTo(e.clientX - margins, e.clientY - margins);
                     context.beginPath();
                     setDrawCounter(0);
 
@@ -173,7 +183,7 @@ const Canvas = props => {
             }
             //endpoint is used by the preview pane
             if(beginPoint!==null){    
-                setEndPoint({x: e.clientX, y: e.clientY});
+                setEndPoint({x: e.clientX - margins, y: e.clientY - margins});
             }
 
     }
@@ -185,7 +195,7 @@ const Canvas = props => {
             const canvas = canvasRef.current;
             const context = canvas.getContext('2d');
             //context.moveTo(cachedXY.x, cachedXY.y);
-            context.lineTo(e.clientX, e.clientY);
+            context.lineTo(e.clientX - margins, e.clientY - margins);
             context.stroke();
 
             isDrawing(!drawing);
@@ -201,7 +211,7 @@ const Canvas = props => {
                 <canvas className="mainCanvas" ref={canvasRef} width="640" height="380" onClick={onClick} onMouseOver={onMouseOver} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}{...props}/>
             </div>
             
-            <Interface beginPoint={beginPoint} endPoint={endPoint} width="64" height="38" actionType={actionType} setActionType={setActionType} setPattern={setPattern} pattern={pattern} setStyle={setStyle} color={color} lineWidth={lineWidth} setLineWidth={setLineWidth} hollow={hollow} setHollow={setHollow} clear={clear}/>
+            <Interface className="interface"beginPoint={beginPoint} endPoint={endPoint} width="64" height="38" actionType={actionType} setActionType={setActionType} setPattern={setPattern} pattern={pattern} setStyle={setStyle} color={color} lineWidth={lineWidth} setLineWidth={setLineWidth} hollow={hollow} setHollow={setHollow} clear={clear}/>
         </>
 
     )
