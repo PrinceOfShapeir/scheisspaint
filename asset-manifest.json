@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/scheisspaint/static/css/main.872a2897.chunk.css",
-    "main.js": "/scheisspaint/static/js/main.c955cfda.chunk.js",
-    "main.js.map": "/scheisspaint/static/js/main.c955cfda.chunk.js.map",
+    "main.css": "/scheisspaint/static/css/main.e33cf3f6.chunk.css",
+    "main.js": "/scheisspaint/static/js/main.115f80fe.chunk.js",
+    "main.js.map": "/scheisspaint/static/js/main.115f80fe.chunk.js.map",
     "runtime-main.js": "/scheisspaint/static/js/runtime-main.72f890a0.js",
     "runtime-main.js.map": "/scheisspaint/static/js/runtime-main.72f890a0.js.map",
     "static/js/2.e2c3f7d1.chunk.js": "/scheisspaint/static/js/2.e2c3f7d1.chunk.js",
     "static/js/2.e2c3f7d1.chunk.js.map": "/scheisspaint/static/js/2.e2c3f7d1.chunk.js.map",
     "index.html": "/scheisspaint/index.html",
-    "static/css/main.872a2897.chunk.css.map": "/scheisspaint/static/css/main.872a2897.chunk.css.map",
+    "static/css/main.e33cf3f6.chunk.css.map": "/scheisspaint/static/css/main.e33cf3f6.chunk.css.map",
     "static/js/2.e2c3f7d1.chunk.js.LICENSE.txt": "/scheisspaint/static/js/2.e2c3f7d1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.72f890a0.js",
     "static/js/2.e2c3f7d1.chunk.js",
-    "static/css/main.872a2897.chunk.css",
-    "static/js/main.c955cfda.chunk.js"
+    "static/css/main.e33cf3f6.chunk.css",
+    "static/js/main.115f80fe.chunk.js"
   ]
 }
