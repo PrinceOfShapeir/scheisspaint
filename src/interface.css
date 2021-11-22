@@ -4,7 +4,8 @@
   text-shadow: 2px 2px 4px #0000;
 }
 
-.lineWidthSelect {
+.lineWidthSelect,
+.flex-col {
   display: flex;
   flex-direction: column;
 }
@@ -17,7 +18,7 @@ label {
   flex-direction: row;
   justify-content: left;
 }
-canvas {
+.canvasPreview {
   border-style: solid;
 }
 button {

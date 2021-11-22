@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Interface from './Interface';
-//import './Canvas.css';
+import './Canvas.css';
 const Canvas = props => {
 
     const canvasRef = useRef(null);
-    const [actionType, setActionType] = useState('line');
+    const [actionType, setActionType] = useState('freedraw');
     const [pattern, setPattern] = useState('solid');
     const [color, setStyle] = useState('black');
     const [beginPoint, setBeginPoint] = useState(null);

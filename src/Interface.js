@@ -133,26 +133,37 @@ const Interface = props => {
     const ColorSelect = () => {
 
         return (
-            
-                <select value={color} onChange={changeColor} style={{backgroundColor: color, color: color}}>
-                    <option value="#000000" style={{color:'black', backgroundColor: 'black'}}>Black</option>
-                    <option value="#00FFFF" style={{color:'aqua', backgroundColor: 'aqua'}}>Aqua</option>                    
-                    <option value="#0000FF" style={{color:'blue', backgroundColor: 'blue'}}>Blue</option>
-                    <option value="#FF00FF" style={{color:'fuchsia', backgroundColor: 'fuchsia'}}>Fuchsia</option>
-                    <option value="#808080" style={{color:'gray', backgroundColor: 'gray'}}>Gray</option>
-                    <option value="#008000" style={{color:'green', backgroundColor: 'green'}}>Green</option>
-                    <option value="#00FF00" style={{color:'lime', backgroundColor: 'lime'}}>Lime</option>
-                    <option value="#800000" style={{color:'maroon', backgroundColor: 'maroon'}}>Maroon</option>
-                    <option value="#000080" style={{color:'navy', backgroundColor: 'navy'}}>Navy</option>
-                    <option value="#808000" style={{color:'olive', backgroundColor: 'olive'}}>Olive</option>
-                    <option value="#800080" style={{color:'purple', backgroundColor: 'purple'}}>Purple</option>
-                    <option value="#FF0000" style={{color:'red', backgroundColor: 'red'}}>Red</option>
-                    <option value="#C0C0C0" style={{color:'silver', backgroundColor: 'silver'}}>Silver</option>
-                    <option value="#008080" style={{color:'teal', backgroundColor: 'teal'}}>Teal</option>
-                    <option value="#FFFFFF" className='shadowed'>White</option>
-                    <option value="#FFFF00" style={{color:'yellow', backgroundColor: 'yellow'}}>Yellow</option>
+                <>
+                {/*<div className="flex-col">
+                    <label>
+                        Color
+                    </label>*/}
+                    <select value={color} onChange={changeColor} style={{backgroundColor: color, color: color}}>
+                        <option value="#000000" style={{color:'black', backgroundColor: 'black'}}>Black</option>
+                        <option value="#00FFFF" style={{color:'aqua', backgroundColor: 'aqua'}}>Aqua</option>                    
+                        <option value="#0000FF" style={{color:'blue', backgroundColor: 'blue'}}>Blue</option>
+                        <option value="#FF00FF" style={{color:'fuchsia', backgroundColor: 'fuchsia'}}>Fuchsia</option>
+                        <option value="#808080" style={{color:'gray', backgroundColor: 'gray'}}>Gray</option>
+                        <option value="#008000" style={{color:'green', backgroundColor: 'green'}}>Green</option>
+                        <option value="#00FF00" style={{color:'lime', backgroundColor: 'lime'}}>Lime</option>
+                        <option value="#800000" style={{color:'maroon', backgroundColor: 'maroon'}}>Maroon</option>
+                        <option value="#000080" style={{color:'navy', backgroundColor: 'navy'}}>Navy</option>
+                        <option value="#808000" style={{color:'olive', backgroundColor: 'olive'}}>Olive</option>
+                        <option value="#800080" style={{color:'purple', backgroundColor: 'purple'}}>Purple</option>
+                        <option value="#FF0000" style={{color:'red', backgroundColor: 'red'}}>Red</option>
+                        <option value="#C0C0C0" style={{color:'silver', backgroundColor: 'silver'}}>Silver</option>
+                        <option value="#008080" style={{color:'teal', backgroundColor: 'teal'}}>Teal</option>
+                        <option value="#FFFFFF" className='shadowed'>White</option>
+                        <option value="#FFFF00" style={{color:'yellow', backgroundColor: 'yellow'}}>Yellow</option>
 
-                </select>
+                   </select>
+               {/*  </div> */}
+
+               </>
+
+
+            
+                
             
 
         );
@@ -185,7 +196,7 @@ const Interface = props => {
         return (
             <>
                 
-                <canvas ref={canvasRef} width="64" height="38"></canvas>
+                <canvas ref={canvasRef} width="64" height="38" className="canvasPreview"></canvas>
             </>
 
         );
