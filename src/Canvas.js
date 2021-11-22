@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Interface from './Interface';
-
+//import './Canvas.css';
 const Canvas = props => {
 
     const canvasRef = useRef(null);
@@ -197,7 +197,10 @@ const Canvas = props => {
     return (
 
         <>
-            <canvas ref={canvasRef} width="640" height="380" onClick={onClick} onMouseOver={onMouseOver} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}{...props}/>
+            <div className="canvasContainer">
+                <canvas className="mainCanvas" ref={canvasRef} width="640" height="380" onClick={onClick} onMouseOver={onMouseOver} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}{...props}/>
+            </div>
+            
             <Interface beginPoint={beginPoint} endPoint={endPoint} width="64" height="38" actionType={actionType} setActionType={setActionType} setPattern={setPattern} pattern={pattern} setStyle={setStyle} color={color} lineWidth={lineWidth} setLineWidth={setLineWidth} hollow={hollow} setHollow={setHollow} clear={clear}/>
         </>
 

@@ -36,20 +36,23 @@ const Interface = props => {
 
     useEffect(()=>{
 
-        const clearPreview = (context) => {
+        /*const clearPreview = (context) => {
             context.clearRect(0,0,context.canvas.width-1, context.canvas.height-1);
             //return setPreviewCleared(!previewCleared);
-        }
+        }*/
 
         const previewPane = () => {
         //should just be transformed copy of whatever is happening in Canvas, in between clicks.
 
             if(beginPoint!==null){
-                const x = Math.round(beginPoint.x/10) ;
+                const x = Math.round(beginPoint.x/10);
                 const y = Math.round(beginPoint.y/10);
                 const preview = canvasRef.current;
                 const context = preview.getContext('2d');
-                clearPreview(context);
+                context.strokeStyle = color;
+                context.fillStyle = color;
+                //clearPreview(context);
+                //context.clearRect(2,2,context.canvas.width-2, context.canvas.height-2);
 
                 //move \/ behind conditional if newer shapes interfere
                 context.fillRect(x, y, 1, 1);
@@ -88,9 +91,10 @@ const Interface = props => {
 
                 }
             } else {
-                const preview = canvasRef.current;
-                const context = preview.getContext('2d');
-                clearPreview(context);
+                const canvas = canvasRef.current;
+                const context = canvas.getContext('2d');
+                //clearPreview(context);
+                context.clearRect(2,2,context.canvas.width-2, context.canvas.height-2);
             }     
         }
         /*startedPreview && */previewPane();
@@ -129,28 +133,27 @@ const Interface = props => {
     const ColorSelect = () => {
 
         return (
-            <label style={{backgroundColor: color, color: color}}>
-                Color
-                <select value={color} onChange={changeColor}>
-                    <option value="#000000" style={{color:'black'}}>Black</option>
-                    <option value="#00FFFF" style={{color:'aqua'}}>Aqua</option>                    
-                    <option value="#0000FF" style={{color:'blue'}}>Blue</option>
-                    <option value="#FF00FF" style={{color:'fuchsia'}}>Fuchsia</option>
-                    <option value="#808080" style={{color:'gray'}}>Gray</option>
-                    <option value="#008000" style={{color:'green'}}>Green</option>
-                    <option value="#00FF00" style={{color:'lime'}}>Lime</option>
-                    <option value="#800000" style={{color:'maroon'}}>Maroon</option>
-                    <option value="#000080" style={{color:'navy'}}>Navy</option>
-                    <option value="#808000" style={{color:'olive'}}>Olive</option>
-                    <option value="#800080" style={{color:'purple'}}>Purple</option>
-                    <option value="#FF0000" style={{color:'red'}}>Red</option>
-                    <option value="#C0C0C0" style={{color:'silver'}}>Silver</option>
-                    <option value="#008080" style={{color:'teal'}}>Teal</option>
+            
+                <select value={color} onChange={changeColor} style={{backgroundColor: color, color: color}}>
+                    <option value="#000000" style={{color:'black', backgroundColor: 'black'}}>Black</option>
+                    <option value="#00FFFF" style={{color:'aqua', backgroundColor: 'aqua'}}>Aqua</option>                    
+                    <option value="#0000FF" style={{color:'blue', backgroundColor: 'blue'}}>Blue</option>
+                    <option value="#FF00FF" style={{color:'fuchsia', backgroundColor: 'fuchsia'}}>Fuchsia</option>
+                    <option value="#808080" style={{color:'gray', backgroundColor: 'gray'}}>Gray</option>
+                    <option value="#008000" style={{color:'green', backgroundColor: 'green'}}>Green</option>
+                    <option value="#00FF00" style={{color:'lime', backgroundColor: 'lime'}}>Lime</option>
+                    <option value="#800000" style={{color:'maroon', backgroundColor: 'maroon'}}>Maroon</option>
+                    <option value="#000080" style={{color:'navy', backgroundColor: 'navy'}}>Navy</option>
+                    <option value="#808000" style={{color:'olive', backgroundColor: 'olive'}}>Olive</option>
+                    <option value="#800080" style={{color:'purple', backgroundColor: 'purple'}}>Purple</option>
+                    <option value="#FF0000" style={{color:'red', backgroundColor: 'red'}}>Red</option>
+                    <option value="#C0C0C0" style={{color:'silver', backgroundColor: 'silver'}}>Silver</option>
+                    <option value="#008080" style={{color:'teal', backgroundColor: 'teal'}}>Teal</option>
                     <option value="#FFFFFF" className='shadowed'>White</option>
-                    <option value="#FFFF00" style={{color:'yellow'}}>Yellow</option>
+                    <option value="#FFFF00" style={{color:'yellow', backgroundColor: 'yellow'}}>Yellow</option>
 
                 </select>
-            </label>
+            
 
         );
 
@@ -158,8 +161,17 @@ const Interface = props => {
 
     const LineWidthSelect = () => {
 
-        return <input type="range" max="10.0" min="0.01" step="0.01" value={lineWidth} onInput={changeLineWidth}></input>
+        return (
+            <div className="lineWidthSelect">
 
+                <label>Line Width {lineWidth}</label>
+                
+                <input type="range" className="range" max="10.0" min="0.01" step="0.01" value={lineWidth} onInput={changeLineWidth}></input>
+
+
+            </div>
+            
+        );
     }
 
     const HollowButton = () => {
@@ -189,11 +201,11 @@ const Interface = props => {
             <button onClick={()=>setActionType('line')}>Line</button>
             <button onClick={()=>setActionType('freedraw')}>Free Draw</button>
             <button onClick={()=>setActionType('rectangle')}>Rectangle</button>
-            <button onClick={clear}>Clear All</button>
+            <button onClick={clear}>Clear</button>
             <HollowButton />
             <PatternToggle />
-            <ColorSelect />
             <LineWidthSelect />
+            <ColorSelect />
 
         </div>
             
