@@ -9,6 +9,7 @@ function App() {
     <>
       <h1>A Paint Type App</h1>
       <p>This is meant to emulate the functionality of the original PC Paint program, used to create 16 color EGA bitmap art. </p>
+      <p>You may view and comment on the source code at <a href="https://princeofshapeir.github.io/scheisspaint/">Github</a>.</p>
       <button onClick={()=>setActive(!active)}>Start Drawing</button>
     </>
   );
