@@ -178,7 +178,7 @@ const Interface = props => {
         return (
             <div className="lineWidthSelect">
 
-                <label>Line Width {lineWidth}</label>
+                <label>Line Width <input type="number" min="0.01" max="10.0" step="0.01" value={lineWidth} onInput={changeLineWidth}></input></label> 
                 
                 <input type="range" className="range" max="10.0" min="0.01" step="0.01" value={lineWidth} onInput={changeLineWidth}></input>
 
@@ -212,12 +212,14 @@ const Interface = props => {
         <div className="flex-container">
             <Preview />
             <button onClick={()=>setActionType('point')}>Point</button>
+            <PatternToggle />
             <button onClick={()=>setActionType('line')}>Line</button>
             <button onClick={()=>setActionType('freedraw')}>Free Draw</button>
-            <button onClick={()=>setActionType('rectangle')}>Rectangle</button>
-            <button onClick={clear}>Clear</button>
             <HollowButton />
-            <PatternToggle />
+            <button onClick={()=>setActionType('rectangle')}>Rectangle</button>
+            <button onDoubleClick={clear}>Clear</button>
+            
+            
             <LineWidthSelect />
             <ColorSelect />
             
