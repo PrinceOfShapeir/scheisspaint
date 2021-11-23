@@ -2,4 +2,6 @@ This app is designed to mimic the look and feel of early Windows 1.x paint progr
 
 View the live version at https://princeofshapeir.github.io/scheisspaint
 
-![Alt text](./public/funny.png?raw=true "Optional Title")
+Here are some examples of "art" created with the tool:
+
+<a href="./public/funny.png"><img src="./public/funny.png" height="64" width="38" placeholder=""></a>
