@@ -2,6 +2,9 @@ This app is designed to mimic the look and feel of early Windows 1.x paint progr
 
 View the live version <a href="https://princeofshapeir.github.io/scheisspaint">here.</a>
 
+You can view the developer homepage <a href="https://princeofshapeir.github.io/react-portfolio/">here</a>.
+
 Here are some examples of "art" created with the tool:
 
 <a href="./public/funny.png"><img src="./public/funny.png" height="38" width="64" placeholder=""></a>
+<a href="./public/example.png"><img src="./public/example.png" height="38" width="64" placeholder=""></a>
