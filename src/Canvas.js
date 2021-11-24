@@ -45,7 +45,7 @@ const Canvas = props => {
         context.stroke();
         if(!mounted) {
             context.font = "15px Trebuchet";
-            context.fillText("Color", 590, 379);
+            context.fillText("Color", 605, 379);
             context.fillText("Preview", 0, 379);
             context.font = "45px Trebuchet";
             context.fillText("Click 'Clear' to begin drawing!",45, 160);
