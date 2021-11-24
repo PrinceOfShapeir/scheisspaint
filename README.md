@@ -4,7 +4,7 @@ View the live version <a href="https://princeofshapeir.github.io/scheisspaint">h
 
 You can view the developer homepage <a href="https://princeofshapeir.github.io/react-portfolio/">here</a>.
 
-Here are some examples of "art" created with the tool:
+Here are some examples of the "art" created with the tool:
 
 <a href="./public/funny.png"><img src="./public/funny.png" height="38" width="64" placeholder=""></a>
 <a href="./public/example.png"><img src="./public/example.png" height="38" width="64" placeholder=""></a>
