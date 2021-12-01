@@ -8,3 +8,5 @@ Here are some examples of the "art" created with the tool:
 
 <a href="./public/funny.png"><img src="./public/funny.png" height="38" width="64" placeholder=""></a>
 <a href="./public/example.png"><img src="./public/example.png" height="38" width="64" placeholder=""></a>
+
+-Notes: The package can be run locally using yarn install and yarn start.
