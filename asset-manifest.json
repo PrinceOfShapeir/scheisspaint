@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/scheisspaint/static/css/main.790f5950.chunk.css",
-    "main.js": "/scheisspaint/static/js/main.6fae35a9.chunk.js",
-    "main.js.map": "/scheisspaint/static/js/main.6fae35a9.chunk.js.map",
+    "main.js": "/scheisspaint/static/js/main.0e60e8fe.chunk.js",
+    "main.js.map": "/scheisspaint/static/js/main.0e60e8fe.chunk.js.map",
     "runtime-main.js": "/scheisspaint/static/js/runtime-main.ba607cbd.js",
     "runtime-main.js.map": "/scheisspaint/static/js/runtime-main.ba607cbd.js.map",
     "static/js/2.5aededf4.chunk.js": "/scheisspaint/static/js/2.5aededf4.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.ba607cbd.js",
     "static/js/2.5aededf4.chunk.js",
     "static/css/main.790f5950.chunk.css",
-    "static/js/main.6fae35a9.chunk.js"
+    "static/js/main.0e60e8fe.chunk.js"
   ]
 }
