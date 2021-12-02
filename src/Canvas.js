@@ -63,7 +63,13 @@ const Canvas = props => {
 
         if(actionType==='point') {
             
-            context.fillRect(e.clientX - margins, e.clientY - margins, lineWidth, lineWidth);
+            if (!hollow) context.fillRect(e.clientX - margins, e.clientY - margins, lineWidth, lineWidth);
+            else {
+                context.lineWidth=1;
+                context.beginPath();
+                context.rect(e.clientX - margins, e.clientY - margins, lineWidth, lineWidth);
+                context.stroke();
+            }
         }
         else if (actionType==='line') {
 
